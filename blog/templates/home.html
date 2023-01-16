@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Project W1</title>
+</head>
+
+<body>
+
+    <h1>發表一篇圖文</h1>
+
+    <!-- 檔案上傳區域 -->
+    <form action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <br />
+        <div>
+            {{ form }}
+            <input type="submit" />
+        </div>
+
+    </form>
+
+
+    <!-- 顯示結果 -->
+    <ul>
+        {% for post in posts %}
+        <li>
+            <div>
+                <h1>{{ post.title }}</h1>
+                <img style="max-width: 200px; height:auto;" src="{{ post.image.url }}">
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
